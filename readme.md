@@ -1,11 +1,39 @@
-# A simple template for projects using Verilator and GTKWave
+# Verilator Template
+## Required tools
+### Verilator
+High‑performance Verilog simulator used to compile and run cycle‑accurate C++ models.
+```bash
+sudo apt update
+sudo apt install verilator
+```
+## GTKWave
+Waveform viewer for inspecting dump files generated during simulation.
+```bash
+sudo apt install gtkwave
+```
+## Yosys
+Open‑source RTL synthesis framework used to elaborate Verilog designs and produce netlists.
+```bash
+sudo apt install yosys
+```
+## Node.js + npm
+JavaScript runtime and package manager required to run tools like netlistsvg
+```bash
+sudo apt install nodejs npm
+```
+## netlistsvg
+Utility that converts Yosys JSON netlists into clean and readable SVG schematics.
+```bash
+sudo npm install -g netlistsvg
+```
 
-### Structure
+## Structure
 Inside your project folder you should have at least the following: 
 - src/ : contains your .v or .sv source files 
 - tb/ : contains your .cpp testbenches
-- Makefile
-- add_signals.tcl
+- Makefile : type "make help" on terminal to see commands
+- auto.tcl : adds first level signals to gtkwave automatically
+- (optional) netlist/ : if you use Yosys contains your netlist
 
 ---
 
@@ -19,9 +47,6 @@ sequential example:
 - dff_async.v
 - tb_dff.cpp
 
----
+If you already know how to work just delete the examples and keep makefile and other folders.
 
-If you already know how to work with verilog/System-verilog and testbenches in c++ then you can delete the examples and adjust the makefile based on your project files.
 
----
-The TCL scripts add all top entity signals automatically to GTKWave, if you encounter problems change it based on your components or remove it from the project and the makefile. If you remove it you will need to add manually signals inside GTKWave to see them.
