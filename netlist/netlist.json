@@ -1,0 +1,86 @@
+{
+  "creator": "Yosys 0.33 (git sha1 2584903a060)",
+  "modules": {
+    "dff_async": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "src/dff_async.v:1.1-15.10"
+      },
+      "ports": {
+        "clk_e": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst_e": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "d_e": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "q_s": {
+          "direction": "output",
+          "bits": [ 5 ]
+        }
+      },
+      "cells": {
+        "$procdff$4": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "0",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "src/dff_async.v:8.1-13.4"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 4 ],
+            "Q": [ 5 ]
+          }
+        }
+      },
+      "netnames": {
+        "clk_e": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "src/dff_async.v:2.9-2.14"
+          }
+        },
+        "d_e": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "src/dff_async.v:4.9-4.12"
+          }
+        },
+        "q_s": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "src/dff_async.v:5.14-5.17"
+          }
+        },
+        "rst_e": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "src/dff_async.v:3.9-3.14"
+          }
+        }
+      }
+    }
+  }
+}
