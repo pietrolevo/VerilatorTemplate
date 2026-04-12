@@ -7,19 +7,19 @@
         "src": "src/dff_async.v:1.1-15.10"
       },
       "ports": {
-        "clk_e": {
+        "clk_i": {
           "direction": "input",
           "bits": [ 2 ]
         },
-        "rst_e": {
+        "rst_i": {
           "direction": "input",
           "bits": [ 3 ]
         },
-        "d_e": {
+        "d_i": {
           "direction": "input",
           "bits": [ 4 ]
         },
-        "q_s": {
+        "q_o": {
           "direction": "output",
           "bits": [ 5 ]
         }
@@ -52,28 +52,28 @@
         }
       },
       "netnames": {
-        "clk_e": {
+        "clk_i": {
           "hide_name": 0,
           "bits": [ 2 ],
           "attributes": {
             "src": "src/dff_async.v:2.9-2.14"
           }
         },
-        "d_e": {
+        "d_i": {
           "hide_name": 0,
           "bits": [ 4 ],
           "attributes": {
             "src": "src/dff_async.v:4.9-4.12"
           }
         },
-        "q_s": {
+        "q_o": {
           "hide_name": 0,
           "bits": [ 5 ],
           "attributes": {
             "src": "src/dff_async.v:5.14-5.17"
           }
         },
-        "rst_e": {
+        "rst_i": {
           "hide_name": 0,
           "bits": [ 3 ],
           "attributes": {

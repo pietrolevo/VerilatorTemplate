@@ -37,19 +37,19 @@ int main(int argc, char** argv) {
 
         // vectors
         if (t == 10) {
-            dut->in1_e = 0; dut->in2_e = 0;
+            dut->in1_i = 0; dut->in2_i = 0;
         }
         if (t == 17) {
-            dut->in1_e = 0; dut->in2_e = 1;
+            dut->in1_i = 0; dut->in2_i = 1;
         }
         if (t == 34) {
-            dut->in1_e = 1; dut->in2_e = 0;
+            dut->in1_i = 1; dut->in2_i = 0;
         }
         if (t == 55) {
-            dut->in1_e = 1; dut->in2_e = 1;
+            dut->in1_i = 1; dut->in2_i = 1;
         }
         if (t == 77) {
-          dut->in1_e = 0;
+          dut->in1_i = 0;
         }
 
         // evaluate signals
@@ -57,19 +57,19 @@ int main(int argc, char** argv) {
 
         // assert block
         if (t == 10) {
-          assert(dut->nand_s == 1 && "ERROR: expected value was 1");
+          assert(dut->nand_o == 1 && "ERROR: expected value was 1");
         }
         if (t == 17) {
-          assert(dut->nand_s == 1 && "ERROR: expected value was 1");
+          assert(dut->nand_o == 1 && "ERROR: expected value was 1");
         }
         if (t == 34) {
-          assert(dut->nand_s == 1 && "ERROR: expected value was 1");
+          assert(dut->nand_o == 1 && "ERROR: expected value was 1");
         }
         if (t == 55) {
-          assert(dut->nand_s == 0 && "ERROR: expected value was 0");
+          assert(dut->nand_o == 0 && "ERROR: expected value was 0");
         }    
         if (t == 77) {
-          assert(dut->nand_s == 1 && "ERROR: expected value was 1");
+          assert(dut->nand_o == 1 && "ERROR: expected value was 1");
         }   
         
         // Dump waveform

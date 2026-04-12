@@ -35,28 +35,28 @@
       <text x="5" y="-4" style="fill:#000; stroke:none" class="cell_$procdff$4">Q</text>
     </g>
   </g>
-  <g s:type="inputExt" transform="translate(12,87)" s:width="30" s:height="20" id="cell_clk_e">
-    <text x="15" y="-4" class="nodelabel cell_clk_e" s:attribute="ref">clk_e</text>
+  <g s:type="inputExt" transform="translate(12,87)" s:width="30" s:height="20" id="cell_clk_i">
+    <text x="15" y="-4" class="nodelabel cell_clk_i" s:attribute="ref">clk_i</text>
     <s:alias val="$_inputExt_"/>
-    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_clk_e"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_clk_i"/>
     <g s:x="28" s:y="10" s:pid="Y"/>
   </g>
-  <g s:type="inputExt" transform="translate(12,22)" s:width="30" s:height="20" id="cell_rst_e">
-    <text x="15" y="-4" class="nodelabel cell_rst_e" s:attribute="ref">rst_e</text>
+  <g s:type="inputExt" transform="translate(12,22)" s:width="30" s:height="20" id="cell_rst_i">
+    <text x="15" y="-4" class="nodelabel cell_rst_i" s:attribute="ref">rst_i</text>
     <s:alias val="$_inputExt_"/>
-    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_rst_e"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_rst_i"/>
     <g s:x="28" s:y="10" s:pid="Y"/>
   </g>
-  <g s:type="inputExt" transform="translate(12,152)" s:width="30" s:height="20" id="cell_d_e">
-    <text x="15" y="-4" class="nodelabel cell_d_e" s:attribute="ref">d_e</text>
+  <g s:type="inputExt" transform="translate(12,152)" s:width="30" s:height="20" id="cell_d_i">
+    <text x="15" y="-4" class="nodelabel cell_d_i" s:attribute="ref">d_i</text>
     <s:alias val="$_inputExt_"/>
-    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_d_e"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_d_i"/>
     <g s:x="28" s:y="10" s:pid="Y"/>
   </g>
-  <g s:type="outputExt" transform="translate(197,67)" s:width="30" s:height="20" id="cell_q_s">
-    <text x="15" y="-4" class="nodelabel cell_q_s" s:attribute="ref">q_s</text>
+  <g s:type="outputExt" transform="translate(197,67)" s:width="30" s:height="20" id="cell_q_o">
+    <text x="15" y="-4" class="nodelabel cell_q_o" s:attribute="ref">q_o</text>
     <s:alias val="$_outputExt_"/>
-    <path d="M30,0 L30,20 L15,20 L0,10 L15,0 Z" class="cell_q_s"/>
+    <path d="M30,0 L30,20 L15,20 L0,10 L15,0 Z" class="cell_q_o"/>
     <g s:x="0" s:y="10" s:pid="A"/>
   </g>
   <line x1="40" x2="52" y1="32" y2="32" class="net_3"/>
