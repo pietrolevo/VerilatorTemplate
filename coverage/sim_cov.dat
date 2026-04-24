@@ -1,0 +1,8 @@
+# SystemC::Coverage-3
+C 'fsrc/dff_async.vl2n9pagev_toggle/dff_asyncoclk_ihTOP.dff_async' 50
+C 'fsrc/dff_async.vl3n9pagev_toggle/dff_asyncorst_ihTOP.dff_async' 6
+C 'fsrc/dff_async.vl4n9pagev_toggle/dff_asyncod_ihTOP.dff_async' 5
+C 'fsrc/dff_async.vl5n14pagev_toggle/dff_asyncoq_ohTOP.dff_async' 7
+C 'fsrc/dff_async.vl8n1pagev_line/dff_asyncoblockS8hTOP.dff_async' 26
+C 'fsrc/dff_async.vl9n3pagev_branch/dff_asyncoifS9-10hTOP.dff_async' 7
+C 'fsrc/dff_async.vl9n4pagev_branch/dff_asyncoelseS12hTOP.dff_async' 19

@@ -1,0 +1,11 @@
+TN:verilator_coverage
+SF:src/dff_async.v
+DA:2,50
+DA:3,6
+DA:4,5
+DA:5,7
+DA:8,26
+DA:9,7
+DA:10,7
+DA:12,19
+end_of_record

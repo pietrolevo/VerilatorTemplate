@@ -11,6 +11,10 @@
 #include "verilated_vcd_c.h"
 #include "cassert"
 
+#if VM_COVERAGE
+#include "verilated_cov.h"
+#endif
+
 /*
   define maximum simulation time and initialize time to 0,
   both in picoseconds(10^-12), remember 1000ps = 1ns.
@@ -18,13 +22,54 @@
 */
 const vluint64_t MAX_SIM_TIME = 100;
 vluint64_t t = 0;
-const int CLOCK_TON = 2;
+const int CLOCK_PERIOD = 2;
+
+void init_dut(Vnand2* dut) {
+  dut->in1_i = 0;
+  dut->in2_i = 0;
+}
+
+
+void vector_proc(Vnand2* dut) {
+  if (t == 10) {
+    dut->in1_i = 0;
+    dut->in2_i = 0;
+  }
+  if (t == 17) {
+    dut->in1_i = 0;
+    dut->in2_i = 1;
+  }
+  if (t == 34) {
+    dut->in1_i = 1;
+    dut->in2_i = 0;
+  }
+  if (t == 55) {
+    dut->in1_i = 1;
+    dut->in2_i = 1;
+  }
+  if (t == 77) {
+    dut->in1_i = 0;
+  }
+}
+
+
+void check_assertions(Vnand2* dut) {
+  if (t == 10) assert(dut->nand_o == 1 && "ERROR: expected value was 1");
+  if (t == 17) assert(dut->nand_o == 1 && "ERROR: expected value was 1");
+  if (t == 34) assert(dut->nand_o == 1 && "ERROR: expected value was 1");
+  if (t == 55) assert(dut->nand_o == 0 && "ERROR: expected value was 0");
+  if (t == 77) assert(dut->nand_o == 1 && "ERROR: expected value was 1");
+}
+
 
 int main(int argc, char** argv) {
     Verilated::commandArgs(argc, argv);
 
     // create an istance of the dut
     Vnand2* dut = new Vnand2;
+
+    // initialize all inputs
+    init_dut(dut);
 
     // Waveform
     VerilatedVcdC* tfp = new VerilatedVcdC;
@@ -36,41 +81,13 @@ int main(int argc, char** argv) {
     while (!Verilated::gotFinish() && t < MAX_SIM_TIME) {
 
         // vectors
-        if (t == 10) {
-            dut->in1_i = 0; dut->in2_i = 0;
-        }
-        if (t == 17) {
-            dut->in1_i = 0; dut->in2_i = 1;
-        }
-        if (t == 34) {
-            dut->in1_i = 1; dut->in2_i = 0;
-        }
-        if (t == 55) {
-            dut->in1_i = 1; dut->in2_i = 1;
-        }
-        if (t == 77) {
-          dut->in1_i = 0;
-        }
+        vector_proc(dut);
 
         // evaluate signals
         dut->eval();
 
         // assert block
-        if (t == 10) {
-          assert(dut->nand_o == 1 && "ERROR: expected value was 1");
-        }
-        if (t == 17) {
-          assert(dut->nand_o == 1 && "ERROR: expected value was 1");
-        }
-        if (t == 34) {
-          assert(dut->nand_o == 1 && "ERROR: expected value was 1");
-        }
-        if (t == 55) {
-          assert(dut->nand_o == 0 && "ERROR: expected value was 0");
-        }    
-        if (t == 77) {
-          assert(dut->nand_o == 1 && "ERROR: expected value was 1");
-        }   
+        check_assertions(dut);
         
         // Dump waveform
         tfp->dump(t);
@@ -79,6 +96,11 @@ int main(int argc, char** argv) {
     }
 
     tfp->close();
+    
+    #if VM_COVERAGE
+        VerilatedCov::write("coverage/sim_cov.dat");
+    #endif
+
     delete dut;
 
     return 0;
