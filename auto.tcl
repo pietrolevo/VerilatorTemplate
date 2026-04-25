@@ -21,3 +21,9 @@ set toplist [lsort $toplist]
 
 set num_added [gtkwave::addSignalsFromList $toplist]
 puts "$num_added top level signals added"
+
+gtkwave::setZoomRangeTimes 0 1000
+
+gtkwave::setMarker 0
+
+gtkwave::presentWindow

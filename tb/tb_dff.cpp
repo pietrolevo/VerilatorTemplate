@@ -22,7 +22,7 @@
 */
 const vluint64_t MAX_SIM_TIME = 100;
 vluint64_t t = 0;
-const int CLOCK_PERIOD = 2;
+const int CLOCK_PERIOD = 4;
 
 
 void init_dut(Vdff_async* dut) {
@@ -33,7 +33,7 @@ void init_dut(Vdff_async* dut) {
 
 
 void clock_proc(Vdff_async* dut) {
-  if ((t % CLOCK_PERIOD) == 0) {
+  if ((t % (CLOCK_PERIOD/2)) == 0) {
     dut->clk_i = !dut->clk_i;
   }
 }
