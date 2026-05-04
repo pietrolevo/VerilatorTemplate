@@ -46,8 +46,34 @@ TB_SRCS := $(addprefix $(TB_DIR)/,$(TB_SRCS))
 all: run wave
 
 
+# Static analysis
+analyze:
+	@echo -e "$(CYAN)[LINT] Analyzing $(TOP) in STRICT VERILOG MODE...$(NC)"
+	@if [ ! -f "$(TB_SRCS)" ]; then \
+		echo -e "$(RED)[ERROR] Testbench $(TB_SRCS) not found$(NC)"; exit 1; \
+	fi
+	verilator \
+		--cc $(SRCS) \
+		--exe $(TB_SRCS) \
+		--top-module $(TOP) \
+		--lint-only \
+		--error-limit 1 \
+		-Wall \
+		-Wpedantic \
+		-Werror-IMPLICIT \
+		-Werror-UNDRIVEN \
+		-Werror-PINMISSING \
+		-Werror-LATCH \
+		-Werror-CASEINCOMPLETE \
+		-Werror-BLKSEQ \
+		-Werror-BLKANDNBLK \
+		-Wno-UNOPTFLAT \
+		-Wno-WIDTH
+	@echo -e "$(GREEN)[LINT] No issues found$(NC)"
+
+
 # Compilation with verilator
-compile:
+compile: analyze
 	@echo -e "$(CYAN)[INFO] Compiling $(TOP)...$(NC)"
 	@mkdir -p $(OBJ)/$(BUILD)
 	@if [ ! -f "$(TB_SRCS)" ]; then \
@@ -131,6 +157,7 @@ help:
 	@echo "| Below the commands of this makefile |"
 	@echo "|_____________________________________|"
 	@echo "| make all: one to rule them all      |"
+	@echo "| make analyze: static analysis       |"
 	@echo "| make compile: compile files         |"
 	@echo "| make run: execute simulation        |"
 	@echo "| make wave: open gtkwave             |"
